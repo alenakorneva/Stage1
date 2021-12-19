@@ -13,10 +13,10 @@ public class TheSumOfEnteredNumbers {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Enter a few Integers without white space");
         try {
-            String s = reader.readLine();
-            StringBuilder sb = new StringBuilder(s);
-            for (int i = 0; i < sb.length(); i++) {
-                arr.add(Integer.parseInt(sb.substring(i, i + 1)));
+            String stringInput = reader.readLine();
+            StringBuilder stringInputChangedToStringBuilderType = new StringBuilder(stringInput);
+            for (int i = 0; i < stringInputChangedToStringBuilderType.length(); i++) {
+                arr.add(Integer.parseInt(stringInputChangedToStringBuilderType.substring(i, i + 1)));
             }
             for (Integer elem : arr) {
                 sum += elem;

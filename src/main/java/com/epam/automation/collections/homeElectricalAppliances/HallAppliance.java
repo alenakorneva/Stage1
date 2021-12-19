@@ -1,11 +1,12 @@
 package com.epam.automation.collections.homeElectricalAppliances;
 
-public class ElectricalAppliances {
+public class HallAppliance extends ElectricalAppliance{
+
     private String nameOfTheAppliance;
     private boolean isPluggedIn;
     private double powerConsumption;
 
-    public ElectricalAppliances(String nameOfTheAppliance, boolean isPluggedIn, double powerConsumption) {
+    public HallAppliance(String nameOfTheAppliance, boolean isPluggedIn, double powerConsumption) {
         this.nameOfTheAppliance = nameOfTheAppliance;
         this.isPluggedIn = isPluggedIn;
         this.powerConsumption = powerConsumption;
@@ -37,10 +38,15 @@ public class ElectricalAppliances {
 
     @Override
     public String toString() {
-        return "ElectricalAppliances{" +
+        return "HallAppliance{" +
                 "nameOfTheAppliance='" + nameOfTheAppliance + '\'' +
                 ", isPluggedIn=" + isPluggedIn +
                 ", powerConsumption=" + powerConsumption +
                 '}';
+    }
+
+    @Override
+    public String getApplianceLocation(){
+        return "The appliance is located in the hall";
     }
 }
