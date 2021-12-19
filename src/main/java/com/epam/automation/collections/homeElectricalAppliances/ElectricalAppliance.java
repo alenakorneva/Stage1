@@ -1,15 +1,12 @@
 package com.epam.automation.collections.homeElectricalAppliances;
 
-public class ElectricalAppliances {
+public abstract class ElectricalAppliance {
+
     private String nameOfTheAppliance;
     private boolean isPluggedIn;
     private double powerConsumption;
 
-    public ElectricalAppliances(String nameOfTheAppliance, boolean isPluggedIn, double powerConsumption) {
-        this.nameOfTheAppliance = nameOfTheAppliance;
-        this.isPluggedIn = isPluggedIn;
-        this.powerConsumption = powerConsumption;
-    }
+    public abstract String getApplianceLocation();
 
     public String getNameOfTheAppliance() {
         return nameOfTheAppliance;
@@ -35,12 +32,5 @@ public class ElectricalAppliances {
         this.powerConsumption = powerConsumption;
     }
 
-    @Override
-    public String toString() {
-        return "ElectricalAppliances{" +
-                "nameOfTheAppliance='" + nameOfTheAppliance + '\'' +
-                ", isPluggedIn=" + isPluggedIn +
-                ", powerConsumption=" + powerConsumption +
-                '}';
-    }
+
 }

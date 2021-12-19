@@ -16,6 +16,5 @@ public class AFewRandomNumbersInput {
             System.out.print(Math.random() + " ");
         }
         reader.close();
-
     }
 }
