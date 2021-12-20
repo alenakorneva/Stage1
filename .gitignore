@@ -4,3 +4,4 @@
 *.xml
 */target
 *.output
+target/
