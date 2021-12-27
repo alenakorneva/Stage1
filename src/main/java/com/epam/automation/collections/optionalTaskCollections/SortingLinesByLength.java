@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.Comparator;
 
 public class SortingLinesByLength {
-    ArrayList <StringBuilder> poemLines = new ArrayList<>();
+    ArrayList<StringBuilder> poemLines = new ArrayList<>();
 
 
-    public void listInitialization(){
+    public void listInitialization() {
 
         poemLines.add(new StringBuilder("Lilacs out of the dead land, mixing"));
         poemLines.add(new StringBuilder("Memory and desire, stirring"));
@@ -15,8 +15,8 @@ public class SortingLinesByLength {
         poemLines.add(new StringBuilder("April is the cruellest month, breeding"));
     }
 
-    public void sortLinesByLength(){
-        for (StringBuilder line : poemLines){
+    public void sortLinesByLength() {
+        for (StringBuilder line : poemLines) {
             System.out.println(line);
         }
 
@@ -24,7 +24,7 @@ public class SortingLinesByLength {
 
         poemLines.sort(Comparator.comparingInt(o -> o.length()));
 
-        for (StringBuilder sortedLine : poemLines){
+        for (StringBuilder sortedLine : poemLines) {
             System.out.println(sortedLine);
         }
     }

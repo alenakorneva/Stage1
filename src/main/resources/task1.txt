@@ -1,0 +1,3 @@
+some text
+for the optional task from Collections module
+Sorting lines from File

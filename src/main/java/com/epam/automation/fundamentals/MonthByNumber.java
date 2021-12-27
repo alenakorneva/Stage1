@@ -2,7 +2,7 @@ package com.epam.automation.fundamentals;
 
 import java.util.Scanner;
 
-public class AMonthByANumber {
+public class MonthByNumber {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter an Integer from 1 to 12");

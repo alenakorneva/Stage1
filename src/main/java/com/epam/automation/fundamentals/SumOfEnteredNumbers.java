@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-public class TheSumOfEnteredNumbers {
+public class SumOfEnteredNumbers {
     public static void main(String[] args) {
         int sum = 0;
         int multiplication = 1;

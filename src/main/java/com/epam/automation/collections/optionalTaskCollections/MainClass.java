@@ -2,9 +2,9 @@ package com.epam.automation.collections.optionalTaskCollections;
 
 public class MainClass {
     public static void main(String[] args) {
-        /*OutputInTheFileInReversedOrder outputInTheFileInReversedOrder = new OutputInTheFileInReversedOrder("task1.txt");
+        OutputInFileInReversedOrder outputInTheFileInReversedOrder = new OutputInFileInReversedOrder("task1.txt");
         outputInTheFileInReversedOrder.readFromFile();
-        outputInTheFileInReversedOrder.writeInFile();*/
+        outputInTheFileInReversedOrder.writeInFile();
 
         SortingLinesByLength sortingLinesByLength = new SortingLinesByLength();
         sortingLinesByLength.listInitialization();

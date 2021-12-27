@@ -2,11 +2,11 @@ package com.epam.automation.collections.optionalTaskCollections;
 
 import java.io.*;
 
-public class OutputInTheFileInReversedOrder {
+public class OutputInFileInReversedOrder {
     File file;
     String [] splittedTextFromFile;
 
-    public OutputInTheFileInReversedOrder(String fileName) {
+    public OutputInFileInReversedOrder(String fileName) {
         this.file = new File(fileName);
     }
 

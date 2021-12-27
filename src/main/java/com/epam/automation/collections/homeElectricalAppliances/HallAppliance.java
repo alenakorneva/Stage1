@@ -1,6 +1,6 @@
 package com.epam.automation.collections.homeElectricalAppliances;
 
-public class HallAppliance extends ElectricalAppliance{
+public class HallAppliance extends ElectricalAppliance {
 
     private String nameOfTheAppliance;
     private boolean isPluggedIn;
@@ -46,7 +46,7 @@ public class HallAppliance extends ElectricalAppliance{
     }
 
     @Override
-    public String getApplianceLocation(){
+    public String getApplianceLocation() {
         return "The appliance is located in the hall";
     }
 }
