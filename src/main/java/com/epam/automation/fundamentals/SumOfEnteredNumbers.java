@@ -1,29 +1,33 @@
 package com.epam.automation.fundamentals;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class SumOfEnteredNumbers {
     public static void main(String[] args) {
+        ArrayList<String> commandLineArguments = new ArrayList<>(Arrays.asList(args));
+        ArrayList<Integer> numbersForAdditionAndMultiplication = new ArrayList<>();
         int sum = 0;
         int multiplication = 1;
-        ArrayList<Integer> integerInput = new ArrayList<>();
-        System.out.println("Enter a few Integers");
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-            String[] stringInputs = reader.readLine().split(" ");
-            for (String stringInput : stringInputs) {
-                integerInput.add(Integer.parseInt(stringInput));
-            }
-            for (Integer elem : integerInput) {
-                sum += elem;
-                multiplication = multiplication * elem;
-            }
-            System.out.println(sum);
-            System.out.println(multiplication);
-        } catch (IOException e) {
-            e.printStackTrace();
+        for (String commandLineArgument : commandLineArguments) {
+            if (isParsable(commandLineArgument)) {
+                numbersForAdditionAndMultiplication.add(Integer.parseInt(commandLineArgument));
+            } else System.out.println("The input is not a number");
+        }
+        for (Integer elem : numbersForAdditionAndMultiplication) {
+            sum += elem;
+            multiplication = multiplication * elem;
+        }
+        System.out.println("The sum of entered numbers is " + sum);
+        System.out.println("The multiplication of entered numbers is " + multiplication);
+    }
+
+    public static boolean isParsable(String input) {
+        try {
+            Integer.parseInt(input);
+            return true;
+        } catch (final NumberFormatException e) {
+            return false;
         }
     }
 }
