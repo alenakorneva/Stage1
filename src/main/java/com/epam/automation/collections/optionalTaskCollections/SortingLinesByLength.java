@@ -1,30 +1,23 @@
 package com.epam.automation.collections.optionalTaskCollections;
 
-import java.util.ArrayList;
-import java.util.Comparator;
+import java.util.*;
 
 public class SortingLinesByLength {
-    ArrayList<StringBuilder> poemLines = new ArrayList<>();
-
-
-    public void listInitialization() {
-
-        poemLines.add(new StringBuilder("Lilacs out of the dead land, mixing"));
-        poemLines.add(new StringBuilder("Memory and desire, stirring"));
-        poemLines.add(new StringBuilder("Dull roots with spring rain."));
-        poemLines.add(new StringBuilder("April is the cruellest month, breeding"));
+    ArrayList<String> poemLines = new ArrayList<>();
+    {
+        poemLines.add("Lilacs out of the dead land, mixing");
+        poemLines.add("Memory and desire, stirring");
+        poemLines.add("Dull roots with spring rain.");
+        poemLines.add("April is the cruellest month, breeding");
     }
 
     public void sortLinesByLength() {
-        for (StringBuilder line : poemLines) {
+        for (String line : poemLines) {
             System.out.println(line);
         }
-
         System.out.println(" ");
-
         poemLines.sort(Comparator.comparingInt(o -> o.length()));
-
-        for (StringBuilder sortedLine : poemLines) {
+        for (String sortedLine : poemLines) {
             System.out.println(sortedLine);
         }
     }

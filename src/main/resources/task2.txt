@@ -1,1 +1,4 @@
-Some text for the task Output in the File in reversed order
+Some text
+for the task
+Output in the File
+in reversed order

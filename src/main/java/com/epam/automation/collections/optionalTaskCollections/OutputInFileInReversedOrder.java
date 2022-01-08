@@ -1,35 +1,46 @@
 package com.epam.automation.collections.optionalTaskCollections;
 
 import java.io.*;
+import java.util.*;
 
 public class OutputInFileInReversedOrder {
-    File file;
-    String [] splittedTextFromFile;
+    private File file;
+    ArrayList <String> linesFromFile = new ArrayList<>();
 
     public OutputInFileInReversedOrder(String fileName) {
         this.file = new File(fileName);
     }
 
     public void readFromFile() {
-        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
-            String textFromFile = reader.readLine();
-            System.out.println(textFromFile);
-            splittedTextFromFile = textFromFile.split(" ");
+        try (Scanner scanner = new Scanner(new FileReader(file))) {
+            while (scanner.hasNextLine()){
+               linesFromFile.add(scanner.nextLine());
+            }
+            for (String line : linesFromFile){
+                System.out.println(line);
+            }
         } catch (IOException | RuntimeException e) {
             e.printStackTrace();
         }
     }
 
-    public void writeInFile() {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
-            StringBuilder wordsInReversedOrder = new StringBuilder();
-            for (int i = splittedTextFromFile.length - 1; i >= 0; i--) {
-                wordsInReversedOrder.append(splittedTextFromFile[i]);
-                wordsInReversedOrder.append(" ");
-            }
-            System.out.println(wordsInReversedOrder);
-            writer.write(String.valueOf(wordsInReversedOrder));
 
+    public String getWordsInLineInReversedOrder(String line){
+        StringBuilder wordsInReversedOrder = new StringBuilder();
+        String [] wordsFromLine = line.split(" ");
+        Collections.reverse(Arrays.asList(wordsFromLine));
+        for (String word : wordsFromLine){
+            wordsInReversedOrder.append(word);
+            wordsInReversedOrder.append(" ");
+        }
+        return wordsInReversedOrder.toString();
+    }
+
+    public void writeInFileInReversedOrder() {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
+            for (String line : linesFromFile){
+                writer.write(getWordsInLineInReversedOrder(line) + "\n");
+            }
         } catch (IOException | RuntimeException e) {
             e.printStackTrace();
         }
