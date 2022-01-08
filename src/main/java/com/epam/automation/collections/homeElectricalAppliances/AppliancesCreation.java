@@ -16,7 +16,7 @@ public class AppliancesCreation {
         electricalAppliances.add(new KitchenAppliance("coffeeMachine", true, 43.9));
     }
 
-    public double countTotalPowerConsumption() {
+    public double getTotalPowerConsumption() {
         double totalConsumption = 0.0;
         for (ElectricalAppliance electricalAppliance : electricalAppliances) {
             totalConsumption += electricalAppliance.getPowerConsumption();
@@ -24,7 +24,7 @@ public class AppliancesCreation {
         return totalConsumption;
     }
 
-    public double countPowerConsumptionOfPluggedInAppliances() {
+    public double getPowerConsumptionOfPluggedInAppliances() {
         double pluggedInAppliancesConsumption = 0.0;
         for (ElectricalAppliance electricalAppliance : electricalAppliances) {
             if (electricalAppliance.isPluggedIn())
@@ -35,8 +35,9 @@ public class AppliancesCreation {
 
     public void sortByPower() {
         Comparator<ElectricalAppliance> comparator = (firstElectricalAppliance, secondElectricalAppliance) -> {
-            if (firstElectricalAppliance.getPowerConsumption() > secondElectricalAppliance.getPowerConsumption())
+            if (firstElectricalAppliance.getPowerConsumption() > secondElectricalAppliance.getPowerConsumption()) {
                 return 0;
+            }
             else return -1;
         };
         Collections.sort(electricalAppliances, comparator);
