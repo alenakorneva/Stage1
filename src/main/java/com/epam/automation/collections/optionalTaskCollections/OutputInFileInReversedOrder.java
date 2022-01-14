@@ -1,11 +1,18 @@
 package com.epam.automation.collections.optionalTaskCollections;
 
-import java.io.*;
-import java.util.*;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Scanner;
 
 public class OutputInFileInReversedOrder {
     private File file;
-    ArrayList <String> linesFromFile = new ArrayList<>();
+    protected ArrayList<String> linesFromFile = new ArrayList<>();
 
     public OutputInFileInReversedOrder(String fileName) {
         this.file = new File(fileName);
@@ -13,10 +20,10 @@ public class OutputInFileInReversedOrder {
 
     public void readFromFile() {
         try (Scanner scanner = new Scanner(new FileReader(file))) {
-            while (scanner.hasNextLine()){
-               linesFromFile.add(scanner.nextLine());
+            while (scanner.hasNextLine()) {
+                linesFromFile.add(scanner.nextLine());
             }
-            for (String line : linesFromFile){
+            for (String line : linesFromFile) {
                 System.out.println(line);
             }
         } catch (IOException | RuntimeException e) {
@@ -25,22 +32,24 @@ public class OutputInFileInReversedOrder {
     }
 
 
-    public String getWordsInLineInReversedOrder(String line){
-        StringBuilder wordsInReversedOrder = new StringBuilder();
-        String [] wordsFromLine = line.split(" ");
-        Collections.reverse(Arrays.asList(wordsFromLine));
-        for (String word : wordsFromLine){
-            wordsInReversedOrder.append(word);
-            wordsInReversedOrder.append(" ");
+    public String getWordsInLineInReversedOrder() {
+        StringBuilder linesWithWordsInReversedOrder = new StringBuilder();
+        for (String line : linesFromFile) {
+            StringBuilder wordsInReversedOrder = new StringBuilder();
+            String[] wordsFromLine = line.split(" ");
+            Collections.reverse(Arrays.asList(wordsFromLine));
+            for (String word : wordsFromLine) {
+                wordsInReversedOrder.append(word);
+                wordsInReversedOrder.append(" ");
+            }
+            linesWithWordsInReversedOrder.append(wordsInReversedOrder + "\n");
         }
-        return wordsInReversedOrder.toString();
+        return linesWithWordsInReversedOrder.toString();
     }
 
     public void writeInFileInReversedOrder() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
-            for (String line : linesFromFile){
-                writer.write(getWordsInLineInReversedOrder(line) + "\n");
-            }
+            writer.write(getWordsInLineInReversedOrder());
         } catch (IOException | RuntimeException e) {
             e.printStackTrace();
         }

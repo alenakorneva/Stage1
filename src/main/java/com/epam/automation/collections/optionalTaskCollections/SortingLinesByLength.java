@@ -1,9 +1,11 @@
 package com.epam.automation.collections.optionalTaskCollections;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
 
 public class SortingLinesByLength {
-    ArrayList<String> poemLines = new ArrayList<>();
+    protected ArrayList<String> poemLines = new ArrayList<>();
+
     {
         poemLines.add("Lilacs out of the dead land, mixing");
         poemLines.add("Memory and desire, stirring");
