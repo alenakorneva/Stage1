@@ -1,6 +1,8 @@
 package com.epam.automation.collections.homeElectricalAppliances;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class AppliancesCreation {
     ArrayList<ElectricalAppliance> electricalAppliances = new ArrayList<>();
@@ -27,8 +29,9 @@ public class AppliancesCreation {
     public double getPowerConsumptionOfPluggedInAppliances() {
         double pluggedInAppliancesConsumption = 0.0;
         for (ElectricalAppliance electricalAppliance : electricalAppliances) {
-            if (electricalAppliance.isPluggedIn())
+            if (electricalAppliance.isPluggedIn()) {
                 pluggedInAppliancesConsumption += electricalAppliance.getPowerConsumption();
+            }
         }
         return pluggedInAppliancesConsumption;
     }
@@ -37,8 +40,7 @@ public class AppliancesCreation {
         Comparator<ElectricalAppliance> comparator = (firstElectricalAppliance, secondElectricalAppliance) -> {
             if (firstElectricalAppliance.getPowerConsumption() > secondElectricalAppliance.getPowerConsumption()) {
                 return 0;
-            }
-            else return -1;
+            } else return -1;
         };
         Collections.sort(electricalAppliances, comparator);
         for (ElectricalAppliance electricalAppliance : electricalAppliances) {
@@ -48,8 +50,9 @@ public class AppliancesCreation {
 
     public void findPluggedInKitchenApplianceByPower(double powerConsumption, boolean isPluggedIn) {
         for (ElectricalAppliance electricalAppliance : electricalAppliances) {
-            if (electricalAppliance.isPluggedIn() == isPluggedIn && electricalAppliance.getPowerConsumption() <= powerConsumption && electricalAppliance instanceof KitchenAppliance)
+            if (electricalAppliance.isPluggedIn() == isPluggedIn && electricalAppliance.getPowerConsumption() <= powerConsumption && electricalAppliance instanceof KitchenAppliance) {
                 System.out.print(electricalAppliance.getNameOfTheAppliance() + " ");
+            }
         }
     }
 }

@@ -3,7 +3,7 @@ package com.epam.automation.collections.homeElectricalAppliances;
 public class KitchenAppliance extends ElectricalAppliance {
 
     public KitchenAppliance(String nameOfTheAppliance, boolean isPluggedIn, double powerConsumption) {
-        super();
+        super(nameOfTheAppliance, isPluggedIn, powerConsumption);
     }
 
     @Override
