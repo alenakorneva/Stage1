@@ -3,7 +3,7 @@ package com.epam.automation.classes;
 import java.util.ArrayList;
 
 public class HouseList {
-    ArrayList<House> houses = new ArrayList<>();
+    protected ArrayList<House> houses = new ArrayList<>();
 
     {
         houses.add(new House(1, 111, 3, 35.6, 3));
@@ -21,7 +21,7 @@ public class HouseList {
         int flatNumberWIthRequiredRoomsAmount = 0;
         for (House house : houses) {
             if (house.getRoomsAmount() == roomsAmount)
-                return flatNumberWIthRequiredRoomsAmount = house.getFlatNumber();
+                flatNumberWIthRequiredRoomsAmount = house.getFlatNumber();
         }
         return flatNumberWIthRequiredRoomsAmount;
     }
@@ -31,7 +31,7 @@ public class HouseList {
         int flatNumberWIthRequiredRoomsAmountAndFloor = 0;
         for (House house : houses) {
             if (house.getRoomsAmount() == roomsAmount && house.getFloor() >= initialFloor && house.getFloor() <= endFloor)
-                return flatNumberWIthRequiredRoomsAmountAndFloor = house.getFlatNumber();
+                flatNumberWIthRequiredRoomsAmountAndFloor = house.getFlatNumber();
         }
         return flatNumberWIthRequiredRoomsAmountAndFloor;
     }
@@ -41,7 +41,7 @@ public class HouseList {
         int flatNumberWIthRequiredSquare = 0;
         for (House house : houses) {
             if (house.getSquare() > square)
-                return flatNumberWIthRequiredSquare = house.getFlatNumber();
+                flatNumberWIthRequiredSquare = house.getFlatNumber();
         }
         return flatNumberWIthRequiredSquare;
     }

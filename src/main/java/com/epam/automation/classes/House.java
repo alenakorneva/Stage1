@@ -1,33 +1,32 @@
 package com.epam.automation.classes;
 
+import java.util.Objects;
+
 public class House {
     private int id;
     private int flatNumber;
-    private String street;
+    private double flatSquare;
+    private int flatFloor;
+    private int roomsAmountItFlat;
 
     public class ExtraHouseInformation {
-        private double flatSquare;
-        private int floor;
-        private int roomsAmount;
+        private String street;
         private String buildingType;
         private int periodOfExploitation;
     }
 
     ExtraHouseInformation extraHouseInformation = new ExtraHouseInformation();
 
-    public House(int id, int flatNumber, int roomsAmount, double square, int floor) {
-        this.id = id;
-        this.flatNumber = flatNumber;
-        extraHouseInformation.roomsAmount = roomsAmount;
-        extraHouseInformation.flatSquare = square;
-        extraHouseInformation.floor = floor;
-    }
-
     public House(int id, int flatNumber, int floor, int roomsAmount) {
         this.id = id;
         this.flatNumber = flatNumber;
-        extraHouseInformation.floor = floor;
-        extraHouseInformation.roomsAmount = roomsAmount;
+        flatFloor = floor;
+        roomsAmountItFlat = roomsAmount;
+    }
+
+    public House(int id, int flatNumber, int roomsAmount, double square, int floor) {
+        this(id, flatNumber, roomsAmount, floor);
+        flatSquare = square;
     }
 
     public int getId() {
@@ -47,35 +46,35 @@ public class House {
     }
 
     public double getSquare() {
-        return extraHouseInformation.flatSquare;
+        return flatSquare;
     }
 
     public void setSquare(double square) {
-        extraHouseInformation.flatSquare = square;
+        flatSquare = square;
     }
 
     public int getFloor() {
-        return extraHouseInformation.floor;
+        return flatFloor;
     }
 
     public void setFloor(int floor) {
-        extraHouseInformation.floor = floor;
+        flatFloor = floor;
     }
 
     public int getRoomsAmount() {
-        return extraHouseInformation.roomsAmount;
+        return roomsAmountItFlat;
     }
 
     public void setRoomsAmount(int roomsAmount) {
-        extraHouseInformation.roomsAmount = roomsAmount;
+        roomsAmountItFlat = roomsAmount;
     }
 
     public String getStreet() {
-        return street;
+        return extraHouseInformation.street;
     }
 
     public void setStreet(String street) {
-        this.street = street;
+        extraHouseInformation.street = street;
     }
 
     public String getBuildingType() {
@@ -95,16 +94,32 @@ public class House {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        House house = (House) o;
+        return id == house.id &&
+                flatNumber == house.flatNumber &&
+                Double.compare(house.flatSquare, flatSquare) == 0 &&
+                flatFloor == house.flatFloor &&
+                roomsAmountItFlat == house.roomsAmountItFlat &&
+                Objects.equals(extraHouseInformation, house.extraHouseInformation);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, flatNumber, flatSquare, flatFloor, roomsAmountItFlat, extraHouseInformation);
+    }
+
+    @Override
     public String toString() {
         return "House{" +
                 "id=" + id +
-                ", flat=" + flatNumber +
-                ", square=" + extraHouseInformation.flatSquare +
-                ", floor=" + extraHouseInformation.floor +
-                ", roomsAmount=" + extraHouseInformation.roomsAmount +
-                ", street='" + street + '\'' +
-                ", buildingType='" + extraHouseInformation.buildingType + '\'' +
-                ", periodOfExploitation=" + extraHouseInformation.periodOfExploitation +
+                ", flatNumber=" + flatNumber +
+                ", flatSquare=" + flatSquare +
+                ", flatFloor=" + flatFloor +
+                ", roomsAmountItFlat=" + roomsAmountItFlat +
+                ", extraHouseInformation=" + extraHouseInformation +
                 '}';
     }
 }
