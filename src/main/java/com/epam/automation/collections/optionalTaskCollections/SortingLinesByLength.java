@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 
 public class SortingLinesByLength {
-    protected ArrayList<String> poemLines = new ArrayList<>();
+    private ArrayList<String> poemLines = new ArrayList<>();
 
     {
         poemLines.add("Lilacs out of the dead land, mixing");

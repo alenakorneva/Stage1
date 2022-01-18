@@ -8,7 +8,7 @@ import java.util.Collections;
 import java.util.Scanner;
 
 public class SortingLinesFromFile {
-    protected ArrayList<String> linesFromFile = new ArrayList<>();
+    private ArrayList<String> linesFromFile = new ArrayList<>();
     private File file;
 
     public SortingLinesFromFile(String fileName) {

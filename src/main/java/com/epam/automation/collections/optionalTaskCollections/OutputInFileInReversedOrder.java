@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 public class OutputInFileInReversedOrder {
     private File file;
-    protected ArrayList<String> linesFromFile = new ArrayList<>();
+    private ArrayList<String> linesFromFile = new ArrayList<>();
 
     public OutputInFileInReversedOrder(String fileName) {
         this.file = new File(fileName);
@@ -47,9 +47,9 @@ public class OutputInFileInReversedOrder {
         return linesWithWordsInReversedOrder.toString();
     }
 
-    public void writeInFileInReversedOrder() {
+    public void writeInFileInReversedOrder(String linesInReversedOrder) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
-            writer.write(getWordsInLineInReversedOrder());
+            writer.write(linesInReversedOrder);
         } catch (IOException | RuntimeException e) {
             e.printStackTrace();
         }
