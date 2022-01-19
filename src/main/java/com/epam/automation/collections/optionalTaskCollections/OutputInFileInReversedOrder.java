@@ -13,6 +13,7 @@ import java.util.Scanner;
 public class OutputInFileInReversedOrder {
     private File file;
     private ArrayList<String> linesFromFile = new ArrayList<>();
+    private String textFromFileInReversedOrder;
 
     public OutputInFileInReversedOrder(String fileName) {
         this.file = new File(fileName);
@@ -44,12 +45,13 @@ public class OutputInFileInReversedOrder {
             }
             linesWithWordsInReversedOrder.append(wordsInReversedOrder + "\n");
         }
-        return linesWithWordsInReversedOrder.toString();
+        textFromFileInReversedOrder = linesWithWordsInReversedOrder.toString();
+        return textFromFileInReversedOrder;
     }
 
-    public void writeInFileInReversedOrder(String linesInReversedOrder) {
+    public void writeInFileInReversedOrder() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
-            writer.write(linesInReversedOrder);
+            writer.write(textFromFileInReversedOrder);
         } catch (IOException | RuntimeException e) {
             e.printStackTrace();
         }
