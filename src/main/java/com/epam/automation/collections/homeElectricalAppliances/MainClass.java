@@ -5,7 +5,7 @@ public class MainClass {
         AppliancesCreation appliancesCreation = new AppliancesCreation();
         System.out.println(appliancesCreation.getTotalPowerConsumption());
         appliancesCreation.sortByPower();
-        appliancesCreation.findPluggedInKitchenApplianceByPower(23, true);
+        System.out.println(appliancesCreation.findPluggedInKitchenApplianceByPower(23, true));
     }
 
 }

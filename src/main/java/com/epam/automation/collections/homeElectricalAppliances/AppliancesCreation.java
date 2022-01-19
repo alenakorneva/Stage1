@@ -48,11 +48,13 @@ public class AppliancesCreation {
         }
     }
 
-    public void findPluggedInKitchenApplianceByPower(double powerConsumption, boolean isPluggedIn) {
+    public ArrayList<ElectricalAppliance> findPluggedInKitchenApplianceByPower(double powerConsumption, boolean isPluggedIn) {
+        ArrayList<ElectricalAppliance> pluggedInKitchenAppliances = new ArrayList<>();
         for (ElectricalAppliance electricalAppliance : electricalAppliances) {
             if (electricalAppliance.isPluggedIn() == isPluggedIn && electricalAppliance.getPowerConsumption() <= powerConsumption && electricalAppliance instanceof KitchenAppliance) {
-                System.out.print(electricalAppliance.getNameOfTheAppliance() + " ");
+                pluggedInKitchenAppliances.add(electricalAppliance);
             }
         }
+        return pluggedInKitchenAppliances;
     }
 }
